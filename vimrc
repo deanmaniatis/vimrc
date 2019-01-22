@@ -6,6 +6,7 @@ Plug 'fatih/molokai'
 Plug 'fatih/vim-go'
 Plug 'SirVer/ultisnips'
 Plug 'Raimondi/delimitMate'
+Plug 'pbrisbin/vim-colors-off'
 call plug#end()
 
 
@@ -13,15 +14,17 @@ call plug#end()
 " Plugin settings              "
 """"""""""""""""""""""""""""""""
 let g:go_fmt_command = "goimports"
-let g:go_metalinter_autosave = 1
+"let g:go_metalinter_autosave = 1
+"let g:go_term_enabled = 1
+"let g:go_term_mode = "vsplit"
 
 " The following may impact performance
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
+"let g:go_highlight_types = 1
+"let g:go_highlight_fields = 1
+"let g:go_highlight_functions = 1
+"let g:go_highlight_function_calls = 1
+"let g:go_highlight_operators = 1
+"let g:go_highlight_extra_types = 1
 
 
 """"""""""""""""""""""""""""""""
@@ -35,7 +38,7 @@ set number
 set relativenumber
 set wildmenu
 set path+=**
-set autowrite 
+set autowrite
 set autoread
 
 " less important
@@ -45,7 +48,9 @@ set showcmd
 
 set ignorecase
 set smartcase
+set completeopt=menu,menuone
 
+autocmd Filetype qf setlocal norelativenumber nonumber
 
 """"""""""""""""""""""""""""""""
 " Window managent              "
@@ -57,9 +62,9 @@ set splitbelow
 """"""""""""""""""""""""""""""""
 " Styling                      "
 """"""""""""""""""""""""""""""""
-syntax enable
-colorscheme molokai
-set termguicolors		" to support molokai theme
+"syntax enable
+colorscheme off
+"set termguicolors		" to support molokai theme
 
 
 """"""""""""""""""""""""""""""""
