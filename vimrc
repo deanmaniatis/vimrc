@@ -7,6 +7,7 @@ Plug 'fatih/vim-go'
 Plug 'SirVer/ultisnips'
 Plug 'Raimondi/delimitMate'
 Plug 'pbrisbin/vim-colors-off'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 
@@ -16,7 +17,8 @@ call plug#end()
 let g:go_fmt_command = "goimports"
 "let g:go_metalinter_autosave = 1
 "let g:go_term_enabled = 1
-"let g:go_term_mode = "vsplit"
+let g:go_term_mode = "split"
+let g:go_term_height = 10
 
 " The following may impact performance
 "let g:go_highlight_types = 1
