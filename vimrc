@@ -2,7 +2,7 @@
 " Plugins                       "
 """""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
-Plug 'fatih/molokai'
+" Plug 'fatih/molokai'
 Plug 'fatih/vim-go'
 Plug 'SirVer/ultisnips'
 Plug 'Raimondi/delimitMate'
@@ -42,6 +42,7 @@ set wildmenu
 set path+=**
 set autowrite
 set autoread
+set hidden
 
 " less important
 set noswapfile
@@ -77,7 +78,7 @@ let mapleader=','
 nnoremap <leader>w :bn<CR>
 nnoremap <leader>q :bp<CR>
 nnoremap ; :
-inoremap jk <ESC>
+inoremap jj <ESC>
 
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
@@ -114,3 +115,6 @@ autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
 autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+
+" For editing .yml files 
+autocmd BufNewFile,BufRead *.yml setlocal expandtab tabstop=4 shiftwidth=4
