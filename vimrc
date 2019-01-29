@@ -78,7 +78,7 @@ let mapleader=','
 nnoremap <leader>w :bn<CR>
 nnoremap <leader>q :bp<CR>
 nnoremap ; :
-inoremap jj <ESC>
+inoremap jk <ESC>
 
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
