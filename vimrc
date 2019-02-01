@@ -9,6 +9,7 @@ Plug 'SirVer/ultisnips'
 Plug 'pbrisbin/vim-colors-off'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 
@@ -33,7 +34,7 @@ let g:go_fmt_command = "goimports"
 " Vim settings                 "
 """"""""""""""""""""""""""""""""
 " cannot live without
-set nocompatible		" not applicable to neovim
+" set nocompatible		" not applicable to neovim
 filetype off
 filetype plugin indent on
 " set number
@@ -65,7 +66,7 @@ set splitbelow
 """"""""""""""""""""""""""""""""
 " Styling                      "
 """"""""""""""""""""""""""""""""
-syntax off
+syntax on
 colorscheme off
 "set termguicolors		" to support molokai theme
 
