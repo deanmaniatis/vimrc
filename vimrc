@@ -2,7 +2,8 @@
 " Plugins                       "
 """""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
-" Plug 'fatih/molokai'
+
+Plug 'fatih/molokai'
 Plug 'fatih/vim-go'
 Plug 'SirVer/ultisnips'
 " Plug 'Raimondi/delimitMate'
@@ -10,12 +11,24 @@ Plug 'pbrisbin/vim-colors-off'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'easymotion/vim-easymotion'
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+
 call plug#end()
 
 
 """"""""""""""""""""""""""""""""
 " Plugin settings              "
 """"""""""""""""""""""""""""""""
+let g:deoplete#enable_at_startup = 1
 let g:go_fmt_command = "goimports"
 "let g:go_metalinter_autosave = 1
 "let g:go_term_enabled = 1
@@ -52,7 +65,8 @@ set showcmd
 
 set ignorecase
 set smartcase
-set completeopt=menu,menuone
+" set completeopt=menu,menuone
+set mouse=a	" For those lazy days
 
 " autocmd Filetype qf setlocal norelativenumber nonumber
 
@@ -97,7 +111,7 @@ endfunction
 
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
-" autocmd FileType go nmap <leader>t  <Plug>(go-test!)
+autocmd FileType go nmap <leader>g  <Plug>(go-test)
 autocmd FileType go nmap <leader>t :Dispatch<cr>
 " autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 autocmd FileType go let b:dispatch = 'go test'
