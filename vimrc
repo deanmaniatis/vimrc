@@ -41,7 +41,7 @@ filetype off
 filetype plugin indent on
 set wildmenu
 set path+=**
-set autowrite				" go-build/run autosaves file"
+set autowriteall				" go-build/run autosaves file"
 set autoread
 set hidden
 
@@ -83,6 +83,7 @@ colorscheme molokai
 " Key-mapping                  "
 """"""""""""""""""""""""""""""""
 let mapleader=','
+nmap <space> :noh<CR>		" use space to clear last search hightlight
 
 " nnoremap <leader>w :bn<CR>
 " nnoremap <leader>q :bp<CR>
@@ -93,6 +94,7 @@ inoremap jk <ESC>
 " map <C-k> :cprevious<CR>
 nnoremap <leader>c :cclose<CR>
 nnoremap <leader>ev :tabe ~/workspace/repos/vimrc/vimrc<CR>
+nnoremap <leader>sv :so $MYVIMRC<CR>
 
 
 function! s:build_go_files()
