@@ -3,6 +3,7 @@
 """""""""""""""""""""""""""""""""
 if has('nvim')
   call plug#begin('~/.local/share/nvim/plugged')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
   call plug#begin('~/.vim/plugged')
 endif
@@ -13,6 +14,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'easymotion/vim-easymotion'
 Plug 'sebdah/vim-delve'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+" Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'deanmaniatis/vim-colors-mania'
 Plug 'fatih/molokai'
@@ -25,16 +28,20 @@ call plug#end()
 """"""""""""""""""""""""""""""""
 let g:go_fmt_command = "goimports"
 
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#go#unimported_packages = 1
+
 """"""""""""""""""""""""""""""""
 " Vim settings                 "
 """"""""""""""""""""""""""""""""
 " cannot live without
-" set nocompatible		" not applicable to neovim
 filetype off
 filetype plugin indent on
 set wildmenu
 set path+=**
-set autowrite	"go-build/run autosaves file"
+set autowrite				" go-build/run autosaves file"
 set autoread
 set hidden
 
@@ -45,9 +52,14 @@ set showcmd
 
 set cursorline
 set ignorecase
-" set smartcase
+set smartcase
+
 " " set completeopt=menu,menuone
-set mouse=a	" For those lazy days
+set completeopt+=noinsert
+set completeopt+=noselect
+set completeopt-=preview		" remove the preview/scratch window
+set mouse=a				" For those lazy days
+set nu
 
 " autocmd Filetype qf setlocal norelativenumber nonumber
 
