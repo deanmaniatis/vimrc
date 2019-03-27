@@ -16,8 +16,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'sebdah/vim-delve'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'dag/vim-fish'
-Plug 'fatih/vim-hclfmt'
-Plug 'b4b4r07/vim-hcl'
+Plug 'hashivim/vim-terraform'
 " Plug 'christoomey/vim-tmux-navigator'
 "
 
@@ -37,6 +36,8 @@ let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#unimported_packages = 1
 
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
 """"""""""""""""""""""""""""""""
 " Vim settings                 "
 """"""""""""""""""""""""""""""""
