@@ -15,7 +15,11 @@ Plug 'tpope/vim-dispatch'
 Plug 'easymotion/vim-easymotion'
 Plug 'sebdah/vim-delve'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'dag/vim-fish'
+Plug 'fatih/vim-hclfmt'
+Plug 'b4b4r07/vim-hcl'
 " Plug 'christoomey/vim-tmux-navigator'
+"
 
 Plug 'deanmaniatis/vim-colors-mania'
 Plug 'fatih/molokai'
@@ -44,8 +48,15 @@ set path+=**
 set autowriteall				" go-build/run autosaves file"
 set autoread
 set hidden
+set clipboard=unnamedplus
 
 " " less important
+set tabstop=8 
+set softtabstop=0 
+set expandtab 
+set shiftwidth=4 
+set smarttab
+
 set noswapfile
 set background=dark
 set showcmd
@@ -53,6 +64,8 @@ set showcmd
 set cursorline
 set ignorecase
 set smartcase
+
+set encoding=utf-8
 
 " " set completeopt=menu,menuone
 set completeopt+=noinsert
@@ -98,12 +111,12 @@ nnoremap <leader>sv :so $MYVIMRC<CR>
 
 
 function! s:build_go_files()
-  let l:file = expand('%')
-  if l:file =~# '^\f\+_test\.go$'
-    call go#test#Test(0, 1)
-  elseif l:file =~# '^\f\+\.go$'
-    call go#cmd#Build(0)
-  endif
+	let l:file = expand('%')
+	if l:file =~# '^\f\+_test\.go$'
+		call go#test#Test(0, 1)
+	elseif l:file =~# '^\f\+\.go$'
+		call go#cmd#Build(0)
+	endif
 endfunction
 
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
@@ -120,3 +133,10 @@ autocmd FileType go nmap <leader>r :Dispatch go run %<CR>
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 " " For editing .yml files 
 " autocmd BufNewFile,BufRead *.yml setlocal expandtab tabstop=4 shiftwidth=4
+"
+"
+
+" Python configuration
+au BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
+
+" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
